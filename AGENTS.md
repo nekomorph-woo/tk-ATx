@@ -33,7 +33,7 @@ tk-ATx/
 
 ## 开发验证
 
-* 使用 `pulsar --dev /path/to/<plugin-name>` 打开编辑器进行开发调试
+* 本地开发安装使用：`cd /path/to/<plugin-name>` → `pulsar -p install` → `pulsar -p link --dev` → `pulsar --dev /path/to/<plugin-name>`
 
 * `Cmd+Shift+F5`（`window:reload`）热重载插件
 

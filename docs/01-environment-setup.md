@@ -96,7 +96,7 @@ Pulsar 是 Atom 的社区驱动延续版本，维护于 [pulsar-edit.dev](https:
 2. 打开命令面板（`Cmd+Shift+P` / `Ctrl+Shift+P`）
 3. 搜索 **"Generate Package"**
 4. 输入包名（如 `my-name-word-count`）
-5. 生成器创建目录骨架并链接到 `~/.pulsar/packages/`（或 `~/.atom/packages/`）
+5. 生成器创建目录骨架；本地开发安装使用 `pulsar -p install` + `pulsar -p link --dev`
 
 ### 使用命令行
 
@@ -279,6 +279,8 @@ Atom/Pulsar 推荐使用 **Less**：
 
 Atom 使用 `apm`；Pulsar 使用 `ppm`，命令完全相同。
 
+Pulsar 也可以通过 `pulsar -p` 调用包管理器；如果命令不可用，先在 Pulsar 菜单中执行 **Pulsar > Install Shell Commands**。
+
 ### 常用命令
 
 ```bash
@@ -300,9 +302,16 @@ apm generate package <name>
 apm generate language <name>
 apm generate theme <name>
 
-# 链接本地包（开发用）
-apm link <path-to-package>
-apm unlink <package-name>
+# 安装本地开发的 Pulsar 插件（开发窗口）
+cd /path/to/<plugin-name>
+pulsar -p install
+pulsar -p link --dev
+pulsar --dev /path/to/<plugin-name>
+
+# 安装本地开发的 Pulsar 插件（日常使用）
+cd /path/to/<plugin-name>
+pulsar -p install
+pulsar -p link
 
 # 测试
 apm test

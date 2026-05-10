@@ -30,19 +30,34 @@ Typora 级别的所见即所得 Markdown 编辑器，基于 Milkdown（ProseMirr
 
 * Node.js 18+
 
-### 从 GitHub 安装
+### 准备源码
 
 ```bash
-# 1. 克隆仓库
 git clone https://github.com/nekomorph-woo/tk-ATx.git
-
-# 2. 构建插件依赖（首次安装）
 cd tk-ATx/md-wysiwyg
 npm install
 npm run build
+```
 
-# 3. 创建符号链接到 Pulsar packages 目录
-ln -s $(pwd) ~/.pulsar/packages/md-wysiwyg
+如果 `pulsar -p` 不可用，先在 Pulsar 菜单中执行 **Pulsar > Install Shell Commands**。
+
+### 本地开发安装
+
+```bash
+cd /path/to/tk-ATx/md-wysiwyg
+pulsar -p install
+pulsar -p link --dev
+pulsar --dev /path/to/tk-ATx/md-wysiwyg
+```
+
+开发窗口打开后，在 `.md` 文件中按 `Alt+M` 触发插件。
+
+### 日常使用安装
+
+```bash
+cd /path/to/tk-ATx/md-wysiwyg
+pulsar -p install
+pulsar -p link
 ```
 
 安装完成后重启 Pulsar，或按 `Cmd+Shift+F5` 重载。
@@ -76,4 +91,3 @@ npm run build
 | Editor Max Width     | 900 | 编辑器内容区最大宽度（px）       |
 | Font Size            | 0   | 自定义字体大小，0 = 跟随主题     |
 | Mermaid Render Delay | 500 | Mermaid 图表渲染防抖延迟（ms） |
-
