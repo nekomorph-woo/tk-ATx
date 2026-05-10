@@ -18,7 +18,7 @@ Typora 级别的所见即所得 Markdown 编辑器，基于 Milkdown（ProseMirr
 
 * 选中 mark 元素时展开为原始分隔符语法编辑
 
-* `Alt+M` 一键切换 WYSIWYG / 源码模式
+* `Alt+W` 一键切换 WYSIWYG / 源码模式
 
 * 编辑器宽度、字体大小可配置
 
@@ -50,7 +50,7 @@ pulsar -p link --dev
 pulsar --dev /path/to/tk-ATx/md-wysiwyg
 ```
 
-开发窗口打开后，在 `.md` 文件中按 `Alt+M` 触发插件。
+开发窗口打开后，在 `.md` 文件中按 `Alt+W` 触发插件。
 
 ### 日常使用安装
 
@@ -78,7 +78,7 @@ npm run build
 
 ### md-wysiwyg
 
-打开任意 `.md` 文件，按 `Alt+M` 切换到 WYSIWYG 渲染视图，再按 `Alt+M` 切换回源码。
+打开任意 `.md` 文件，按 `Alt+W` 切换到 WYSIWYG 渲染视图，再按 `Alt+W` 切换回源码。
 
 也可通过菜单 **Packages > Markdown WYSIWYG > Toggle WYSIWYG** 或右键菜单切换。
 

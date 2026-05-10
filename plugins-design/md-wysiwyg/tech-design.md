@@ -24,13 +24,13 @@
 │                           └──────────────────────────────┘  │
 │                                                             │
 │  切换逻辑:                                                   │
-│    TextEditor ──Alt+M──▶ 直接 new MdWysiwygEditor           │
-│    MdWysiwygEditor ──Alt+M──▶ workspace.open(filePath)      │
+│    TextEditor ──Alt+W──▶ 直接 new MdWysiwygEditor           │
+│    MdWysiwygEditor ──Alt+W──▶ workspace.open(filePath)      │
 │                                + setText + destroy wysiwyg  │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-用户在源码 TextEditor 中按 `Alt+M`，插件直接实例化 `MdWysiwygEditor` 并通过 `pane.activateItem()` 替换当前视图。在 WYSIWYG 视图中按 `Alt+M`，序列化 Milkdown 内容为 Markdown，打开源码编辑器并销毁 WYSIWYG 视图。
+用户在源码 TextEditor 中按 `Alt+W`，插件直接实例化 `MdWysiwygEditor` 并通过 `pane.activateItem()` 替换当前视图。在 WYSIWYG 视图中按 `Alt+W`，序列化 Milkdown 内容为 Markdown，打开源码编辑器并销毁 WYSIWYG 视图。
 
 **关键设计**：`_switchToWysiwyg` 不使用 `workspace.open(uri)` 而是直接 `new MdWysiwygEditor()`，避免 Pulsar URI 缓存导致销毁后的 editor 阻止新实例创建。
 
@@ -267,7 +267,7 @@ NodeView 行为：
 ### 4.1 模式切换（源码 → WYSIWYG）
 
 ```
-用户按 Alt+M
+用户按 Alt+W
   → toggle()
   → active = pane.getActiveItem()  // TextEditor
   → _switchToWysiwyg(textEditor, pane)
@@ -282,7 +282,7 @@ NodeView 行为：
 ### 4.2 模式切换（WYSIWYG → 源码）
 
 ```
-用户按 Alt+M
+用户按 Alt+W
   → toggle()
   → active = pane.getActiveItem()  // MdWysiwygEditor
   → _switchToSource(wysiwygEditor)
@@ -358,7 +358,7 @@ md-wysiwyg/
     math.less                      # KaTeX 渲染样式
     mermaid.less                   # Mermaid 渲染样式
   keymaps/
-    md-wysiwyg.json                # Alt+M → md-wysiwyg:toggle
+    md-wysiwyg.json                # Alt+W → md-wysiwyg:toggle
   menus/
     md-wysiwyg.json                # Packages > Markdown WYSIWYG > Toggle WYSIWYG
   package.json
@@ -378,12 +378,12 @@ md-wysiwyg/
 
 | 快捷键 | 命令 | 作用域 | 说明 |
 |--------|------|--------|------|
-| `Alt+M` | `md-wysiwyg:toggle` | `atom-workspace` | 在 WYSIWYG 和源码模式间切换 |
+| `Alt+W` | `md-wysiwyg:toggle` | `atom-workspace` | 在 WYSIWYG 和源码模式间切换 |
 | `Cmd+B` | Milkdown 内置 | ProseMirror | 加粗 |
 | `Cmd+I` | Milkdown 内置 | ProseMirror | 斜体 |
 | `Cmd+S` | Pulsar 内置 | 全局 | 保存（MdWysiwygEditor.save 拦截） |
 
-> `Ctrl+M` 在 `atom-text-editor` 作用域中被默认绑定为 `editor:newline`（ASCII 控制字符映射），不可用于插件快捷键。因此选用 `Alt+M`。
+> `Ctrl+M` 在 `atom-text-editor` 作用域中被默认绑定为 `editor:newline`（ASCII 控制字符映射），不可用于插件快捷键。因此选用 `Alt+W`。
 
 ## 9. 性能考量
 
