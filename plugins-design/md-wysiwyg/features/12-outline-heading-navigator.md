@@ -26,7 +26,7 @@
 - 从 ProseMirror doc 中扫描 heading node。
 - 文档变化时 debounce 更新大纲。
 - 点击大纲项滚动到对应节点。
-- 支持 `Alt+M` 切换后保持大纲状态。
+- 支持 `Alt+W` 切换后保持大纲状态。
 
 ## 风险与注意事项
 
