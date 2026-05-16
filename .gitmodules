@@ -1,0 +1,4 @@
+[submodule "md-wysiwyg"]
+	path = md-wysiwyg
+	url = https://github.com/nekomorph-woo/md-wysiwyg.git
+	branch = main

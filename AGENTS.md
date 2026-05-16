@@ -1,19 +1,21 @@
 # tk-ATx
 
-个人 Pulsar 插件合集。每个子目录是独立的 Pulsar 插件，可单独开发验证。
+个人 Pulsar 插件合集。每个插件子目录是 Git submodule，对应一个独立 GitHub 仓库，可单独开发验证。
 
 ## 项目结构
 
 ```
 tk-ATx/
-  <plugin-name>/          # 每个插件一个目录
+  <plugin-name>/          # 每个插件一个 Git submodule
   plugins-design/         # 插件设计文档
     <plugin-name>/        # 对应插件的设计文档（PRD、计划、技术方案等）
-  .Codex/skills/         # 插件生成 skill
+  .agents/skills/         # 插件生成 skill
   docs/                   # 开发参考文档
 ```
 
 插件相关的设计文档（PRD、技术方案、开发计划等）必须放在 `plugins-design/<plugin-name>/` 下，与插件源码目录 `tk-ATx/<plugin-name>/` 同名对应。
+
+克隆项目时使用 `git clone --recurse-submodules <repo-url>`，或克隆后执行 `git submodule update --init --recursive`。
 
 ## 插件开发准则
 
@@ -55,4 +57,4 @@ tk-ATx/
 
 ## 生成新插件
 
-使用 `/create-atom-plugin` skill，基于 `references/my-package/` 骨架初始化。
+使用 `/create-a-plugin` skill，基于 `reference/my-package/` 骨架初始化独立插件仓库，并在 `tk-ATx` 中添加对应 submodule。

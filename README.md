@@ -1,6 +1,6 @@
 # tk-ATx
 
-个人 Pulsar 插件合集。每个子目录是独立的 Pulsar 插件，可单独安装使用。
+个人 Pulsar 插件合集。每个插件子目录都是一个 Git submodule，对应一个独立 GitHub 仓库，可单独安装、开发和发布。
 
 ## 插件列表
 
@@ -33,10 +33,16 @@ Typora 级别的所见即所得 Markdown 编辑器，基于 Milkdown（ProseMirr
 ### 准备源码
 
 ```bash
-git clone https://github.com/nekomorph-woo/tk-ATx.git
+git clone --recurse-submodules https://github.com/nekomorph-woo/tk-ATx.git
 cd tk-ATx/md-wysiwyg
 npm install
 npm run build
+```
+
+如果已经用普通 `git clone` 拉取了主仓库，执行：
+
+```bash
+git submodule update --init --recursive
 ```
 
 如果 `pulsar -p` 不可用，先在 Pulsar 菜单中执行 **Pulsar > Install Shell Commands**。
@@ -67,6 +73,7 @@ pulsar -p link
 ```bash
 cd /path/to/tk-ATx
 git pull
+git submodule update --init --recursive
 cd md-wysiwyg
 npm install
 npm run build
